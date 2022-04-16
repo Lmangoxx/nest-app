@@ -9,6 +9,9 @@ export class Music extends DateDocument {
   id: number;
 
   @Prop()
+  fid: number;
+
+  @Prop()
   author: string;
 
   @Prop()
