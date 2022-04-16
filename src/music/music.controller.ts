@@ -14,7 +14,6 @@ export class MusicController {
     @Query() query: GetMusicInfoQuery,
     @Res() res: any,
   ): ResponsePromise<any> {
-    console.log('detail-----', typeof query.id);
     const data = await this.musicService.findById(query);
     return res.json({
       status: 200,
