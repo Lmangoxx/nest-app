@@ -16,7 +16,7 @@ export class MusicController {
   ): ResponsePromise<any> {
     const data = await this.musicService.findById(query);
     return res.json({
-      status: 200,
+      statusCode: 200,
       data,
       message: '查询成功',
     });
@@ -34,7 +34,7 @@ export class MusicController {
     });
     if (music) {
       return res.json({
-        status: 500,
+        statusCode: 500,
         data: null,
         message: '该音乐已存在',
       });
@@ -42,7 +42,7 @@ export class MusicController {
 
     const data = await this.musicService.create(body);
     return res.json({
-      status: 200,
+      statusCode: 200,
       data: data,
       message: '创建成功',
     });

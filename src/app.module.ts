@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ThemeModule } from './theme/theme.module';
 import { SystemModule } from './system/system.module';
 import { MusicModule } from './music/music.module';
 import settings from '../settings';
@@ -14,6 +15,7 @@ const { mongodb } = settings;
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forRoot(mongodb.db),
+    ThemeModule,
     SystemModule,
     MusicModule,
   ],

@@ -1,5 +1,5 @@
 import { Prop, Schema } from '@nestjs/mongoose';
-import { SchemaDateFactory, DateDocument } from 'src/schema';
+import { SchemaDateFactory, DateDocument } from 'src/utils/schema';
 
 export type MusicDocument = Music & DateDocument;
 
