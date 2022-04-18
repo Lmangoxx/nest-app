@@ -22,6 +22,9 @@ export class Music extends DateDocument {
 
   @Prop({ required: true })
   url: string;
+
+  @Prop()
+  words: string;
 }
 
 export const MusicSchema = SchemaDateFactory.createForClass(Music);
