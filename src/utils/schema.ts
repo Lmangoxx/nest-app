@@ -15,6 +15,9 @@ export class SchemaDateFactory extends SchemaFactory {
     schema.pre('save', function (next) {
       if (this.isNew) {
         this.createAt = this.updateAt = Date.now();
+      } else {
+        //不是新数据，只更新updateAt时间
+        this.updateAt = Date.now();
       }
       next();
     });

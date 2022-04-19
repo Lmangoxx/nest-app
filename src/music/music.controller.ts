@@ -33,10 +33,11 @@ export class MusicController {
       title: body.title,
     });
     if (music) {
+      const data = await this.musicService.update(body);
       return res.json({
-        statusCode: 500,
-        data: null,
-        message: '该音乐已存在',
+        statusCode: 200,
+        data,
+        message: '音乐更新成功',
       });
     }
 

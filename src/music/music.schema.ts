@@ -11,6 +11,10 @@ export class Music extends DateDocument {
   @Prop()
   fid: number;
 
+  // 编码格式等信息
+  @Prop()
+  codec: string;
+
   @Prop()
   author: string;
 
@@ -25,6 +29,15 @@ export class Music extends DateDocument {
 
   @Prop()
   words: string;
+
+  @Prop()
+  likes: number;
+
+  @Prop()
+  collections: number;
+
+  @Prop()
+  views: number;
 }
 
 export const MusicSchema = SchemaDateFactory.createForClass(Music);

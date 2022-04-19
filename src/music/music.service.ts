@@ -11,7 +11,7 @@ export class MusicService {
     @InjectModel(Music.name) private readonly musicModel: Model<MusicDocument>,
   ) {}
 
-  findById({ id, title }: GetMusicInfoQuery): any {
+  async findById({ id, title }: GetMusicInfoQuery): Promise<Music> {
     return this.musicModel.findOne(
       {
         $or: [{ id }, { title }],
@@ -19,6 +19,10 @@ export class MusicService {
       // 过滤掉_id和__v字段
       { _id: 0, __v: 0 },
     );
+  }
+
+  async update(data: CreateMusicDto): Promise<Music> {
+    return this.musicModel.findOneAndUpdate({ id: data.id }, data);
   }
 
   async create(createMusicDto: CreateMusicDto): Promise<Music> {
