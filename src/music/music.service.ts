@@ -11,11 +11,9 @@ export class MusicService {
     @InjectModel(Music.name) private readonly musicModel: Model<MusicDocument>,
   ) {}
 
-  async findById({ id, title }: GetMusicInfoQuery): Promise<Music> {
+  async findById({ id }: GetMusicInfoQuery): Promise<Music> {
     return this.musicModel.findOne(
-      {
-        $or: [{ id }, { title }],
-      },
+      { id },
       // 过滤掉_id和__v字段
       { _id: 0, __v: 0 },
     );

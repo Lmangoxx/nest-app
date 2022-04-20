@@ -28,10 +28,7 @@ export class MusicController {
     @Res() res: any,
   ): ResponsePromise<Music> {
     console.log(body);
-    const music = await this.musicService.findById({
-      id: body.id,
-      title: body.title,
-    });
+    const music = await this.musicService.findById({ id: body.id });
     if (music) {
       const data = await this.musicService.update(body);
       return res.json({
